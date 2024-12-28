@@ -1,0 +1,103 @@
+/* Osnovni stilovi */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+header {
+    text-align: center;
+    background-color: #005f99;
+    color: white;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Galerija */
+.gallery {
+    display: grid;
+    grid-gap: 10px;
+    padding: 20px;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Desktop - 2 reda po 5 slika */
+.gallery {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+/* Tablet - 3 reda po 3 slike i 1 red sa 1 slikom */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto) 1fr;
+    }
+    .gallery-item:nth-child(10) {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Telefon - 5 slika jedna ispod druge */
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    /* Peta slika na telefonu - vidljiva samo gornja polovina */
+    .gallery-item:nth-child(5) img {
+        height: 50%;  /* Prikazuje samo gornju polovinu slike */
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    /* Sakriva tekst na telefonima */
+    .desktop-tablet-only {
+        display: none;
+    }
+}
+
+/* Stil za slike i pločice */
+.gallery-item {
+    text-align: center;
+    padding: 10px;
+    background-color: #005f99; /* Plava pozadina */
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.gallery-item p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #fff; /* Bela boja teksta na plavoj pozadini */
+}
+
+/* Sekcija teksta vidljiva samo na desktopu i tabletima */
+.desktop-tablet-only {
+    text-align: center;
+    margin: 20px;
+}
+
+.desktop-tablet-only p {
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Sakrij tekst na telefonima */
+@media (max-width: 480px) {
+    .desktop-tablet-only {
+        display: none;
+    }
+}
+
+
+
